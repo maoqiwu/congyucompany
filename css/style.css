@@ -1,0 +1,128 @@
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/*导航条*/
+.navbar{
+    background-color: #000;
+    
+}
+.navbar-contianer{
+    background-color: #000;
+    position: relative;
+    width: 100%;
+    height: 60px;
+}
+.navbar-header{
+    position: absolute;
+    background-color: #000;
+    width: 1200px;
+    margin-left: 18%;
+}
+.navbar-div{
+    margin-left: 30%;
+    width: 50%;
+}
+.navbar-div ul  li{
+    display: inline-block;
+     list-style-type: none;   
+     line-height: 50px;
+     font-family: 微软雅黑;
+     font-size: 18px;
+     width: 120px;
+     text-align: center;
+     
+}
+.navbar-div ul  li a{
+    text-decoration: none;
+    color: #fff;
+}
+.navbar-div ul  li a:hover{
+    color: #1C92E1;
+}
+.navbar-div ul  li:first-child a{
+    color: #1C92E1;
+}
+.navbar-about{
+    text-decoration: none;
+    color: #fff;
+    font-family: 微软雅黑;
+    font-size: 16px;
+    position: absolute;
+    right: 0%;
+    top: 25%;
+}
+
+
+/*第一屏*/
+.page-frist{
+    position: relative;
+    background-color: #1C92E1;
+    width: 100%;
+    height: 750px;
+    margin-top: -20px;
+}
+.first-body{
+    position: absolute;
+    left: 18%;
+    width: 1200px;
+    height: 750px;
+   /* background-color: red;*/
+}
+.first-font{
+    position: absolute;
+    top:25%;
+    left: 0;
+}
+.first-btn{
+    position: absolute;
+    top:65%;
+    left: 0;
+}
+.first-pc{
+    position: absolute;
+    top: 20%;
+    right: 0%;
+}
+
+/*第二屏*/
+.page-second{
+    position: relative;
+    background-color: #3B3B3B;
+    width: 100%;
+    height: 750px;
+}
+.second-body{
+    position: absolute;
+    left: 18%;
+    width: 1200px;
+    height: 750px;
+ /*  background-color: red;*/
+}
+.second-font{
+    position: absolute;
+    right: 0%;
+    top:20%;
+}
+.second-left{
+    position: absolute;
+    left: 0%;
+    top:25%;
+}
+
+/*第三屏*/
+.page-three{
+    position: relative;
+    background-color: #F4BF41;
+    width: 100%;
+    height: 750px;
+}
+.three-body{
+    position: absolute;
+    left: 18%;
+    width: 1200px;
+    height: 750px;
+    background-image: url(image/three-earth.png);
+}
