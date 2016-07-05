@@ -16,59 +16,72 @@
     height: 60px;
 }
 .navbar-header{
-    position: absolute;
+    position: relative;
     background-color: #000;
     width: 1200px;
-    margin-left: 18%;
+    height: 60px;
+    /*margin-left: 18%;*/
+    margin-left:  auto;
+    margin-right: auto;
 }
-.navbar-div{
-    margin-left: 30%;
-    width: 50%;
-}
-.navbar-div ul  li{
-    display: inline-block;
+
+.navbar-header ul  li{
+     display: inline-block;
      list-style-type: none;   
-     line-height: 50px;
+     line-height: 60px;
      font-family: 微软雅黑;
      font-size: 18px;
-     width: 120px;
-     text-align: center;
-     
+     /*width: 120px;*/
+     padding-left: 20px;
+     vertical-align: middle;
+     /*text-align: center;*/
 }
-.navbar-div ul  li a{
+
+.navbar-header ul  li a{
+    display: flex;
     text-decoration: none;
     color: #fff;
 }
-.navbar-div ul  li a:hover{
+
+.navbar-header ul  li a:hover{
     color: #1C92E1;
 }
-.navbar-div ul  li:first-child a{
-    color: #1C92E1;
+.navbar-header ul  li:first-child{
+    padding-left: 0;
+    width: 200px;
+    padding-right: 120px;     
 }
-.navbar-about{
+/*.navbar-header ul  li img{
+ margin-top: 10px;   
+}*/
+
+.navbar-header ul  li:last-child{
     text-decoration: none;
     color: #fff;
     font-family: 微软雅黑;
     font-size: 16px;
-    position: absolute;
-    right: 0%;
-    top: 25%;
-}
+    text-align: right;
+    margin-right: 0;
+    float: right;
+    }
+
 
 
 /*第一屏*/
 .page-frist{
-    position: relative;
     background-color: #1C92E1;
     width: 100%;
     height: 750px;
-    margin-top: -20px;
+    /*margin-top: -20px;*/
 }
 .first-body{
-    position: absolute;
-    left: 18%;
+    position: relative;
+    background-color: #1C92E1;
+    /*left: 18%;*/
     width: 1200px;
     height: 750px;
+    margin-left:  auto;
+    margin-right: auto;
    /* background-color: red;*/
 }
 .first-font{
@@ -84,22 +97,23 @@
 .first-pc{
     position: absolute;
     top: 20%;
-    right: 0%;
+    right: 0;
 }
 
 /*第二屏*/
 .page-second{
-    position: relative;
+   /* position: relative;*/
     background-color: #3B3B3B;
     width: 100%;
     height: 750px;
 }
 .second-body{
-    position: absolute;
-    left: 18%;
+    position: relative;
+    margin-left:  auto;
+    margin-right: auto;
     width: 1200px;
     height: 750px;
- /*  background-color: red;*/
+    background-color: #3B3B3B;
 }
 .second-font{
     position: absolute;
@@ -114,15 +128,26 @@
 
 /*第三屏*/
 .page-three{
-    position: relative;
     background-color: #F4BF41;
     width: 100%;
     height: 750px;
 }
 .three-body{
-    position: absolute;
-    left: 18%;
+    position: relative;
+    background-color: #F4BF41;
+    margin-left: auto;
+    margin-right: auto;
     width: 1200px;
     height: 750px;
-    background-image: url(image/three-earth.png);
+    background-image: url(../image/three-earth.png);
+}
+.three-font{
+    position: absolute;
+    top: 25%;
+    left: 0;
+}
+.three-pc{
+    position: absolute;
+    top: 20%;
+    right: 0;
 }
