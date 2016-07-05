@@ -1,0 +1,68 @@
+
+/*导航条*/
+.navbar-header ul  li:last-child a{
+    color: #1C92E1!important;
+}
+/**内容*/
+.about-container{
+    width: 100%;
+    height:1000px;   
+}
+.about-mes{
+    width: 1200px;
+    height: 1000px;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;  
+    /*background-color: aqua;*/
+}
+.about-title{
+    position: absolute;
+    left: 45%;
+    top: 2%;
+}
+.about-font{
+    position: absolute;
+    left: 0;
+    top: 10%;
+}
+.about-font p{
+    font-family: 微软雅黑;
+    font-size: 16px;
+    text-indent: 2em;
+    line-height: 25px;
+}
+.about-our{
+    position: absolute;
+    top: 25%;
+    left:45%;
+}
+.about-map{
+    position: absolute;
+    left: 0;
+    top: 32%;
+}
+.about-ourphone{
+    position: absolute;
+    top: 85%;
+    left: 0;
+}
+.about-ourphone ul li{
+    list-style-type: none;
+    display: inline-block;
+    font-family: 微软雅黑;
+    font-size: 16px;
+}
+.about-ourphone ul:first-child li{
+       width: 595px;
+}
+.about-ourphone ul:last-child li{
+       width: 390px;
+}
+.about_addr,.about_mail{
+     text-align: center!important;
+}
+
+.about_wwww{
+     text-align: right!important;
+}
