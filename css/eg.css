@@ -1,0 +1,56 @@
+.check{
+     color: #1C92E1!important;
+}
+.page-container{
+    width: 100%;
+    height: 1250px;
+}
+.case-div{
+    position: relative;
+    width: 1200px;
+    height: 1250px;
+    margin-left: auto;
+    margin-right: auto;
+    /*background-color: #1C92E1;*/
+    font-family: 微软雅黑;
+    font-size: 14px;
+}
+/*背景*/
+/*.case-div{
+    background-image: url(../image/lenovocase.png) no-repeat;
+}*/
+.case_bgimg{
+    position: absolute;
+    left: 0;
+    top: 3%;
+}
+.case-toufangbg{
+    position: absolute;
+    left: 10%;
+    top: 10%;
+}
+.case-toufangdate{
+    position: absolute;
+    left: 10%;
+    top: 18%;
+}
+.case-toufangaddr{
+    position: absolute;
+    left: 10%;
+    top: 24%;
+}
+.case-toufangtype{
+    position: absolute;
+    left: 10%;
+    top: 30%;
+}
+.case-toufangtarget{
+    position: absolute;
+    left: 10%;
+    top: 35%;
+}
+.case-toufangeffect{
+    position: absolute;
+    left: 10%;
+    top: 42%;
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+    <title>聪娱官网</title>
+    
+    <link rel="stylesheet" href="css/publicstyle.css">
+    <link rel="stylesheet" href="css/eg.css">
+    
+    
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navbar-contianer">
+                <div class="navbar-header">
+                        <ul>
+                            <li> <a  class="navbar-brand" href="index.html">
+                                <img src="image/logo.png" />
+                            </a></li>
+                            <li><a  href="index.html">首页</a></li>
+                            <li><a id="checkid_1"   href="publiccase.html?caseid=lenovo">联想案例</a></li>
+                            <li><a id="checkid_2"  href="publiccase.html?caseid=peiseng">培森教育案例</a></li>
+                            <li><a  id="checkid_3"   href="publiccase.html?caseid=pingan">平安案例</a></li>
+                             <li><a href="about.html">关于我们</a></li>
+                        </ul>
+                    </div>
+            </div>
+        </nav>
+   </header>
+   
+   <div class="page-container">
+       <div  class="case-div">
+           <div class="case_bgimg" id="bgimg"></div>
+            <div class="case-toufangbg" id="toufangbg"> </div>
+            <div class="case-toufangdate" id="toufangdate"></div>
+            <div class="case-toufangaddr" id="toufangaddr"></div>
+            <div class="case-toufangtype" id="toufangtype"></div>
+            <div class="case-toufangtarget" id="toufangtarget"></div>
+            <div class="case-toufangeffect" id="toufangeffect"></div>
+        </div>
+   </div>
+    
+          <!--尾部-->
+        <footer class="foot">
+            <div class="foot-div">
+                <img src="image/foot.png" />
+            </div>    
+        </footer>
+        
+      <script  src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+      <script  src="scripts/publicjson.js"></script>
+  <script type="text/javascript">
+  
+  function getValue(caseid){
+      var index;
+      if(caseid=='pingan'){
+         index=0;
+         $("#checkid_1").removeClass("check");
+         $("#checkid_2").removeClass("check");
+         $("#checkid_3").addClass("check");
+       
+      }else if(caseid=='lenovo'){
+          index=1;
+         $("#checkid_2").removeClass("check");
+         $("#checkid_3").removeClass("check");
+         $("#checkid_1").addClass("check");
+      }else if(caseid=='peiseng'){
+          index=2;
+          $("#checkid_1").removeClass("check");
+         $("#checkid_3").removeClass("check");
+          $("#checkid_2").addClass("check");
+      }
+      
+       $("#bgimg").html("<img src=\"image/"+str[index].bgimg+"\" />");
+       $("#toufangbg").html(str[index].toufangbg);
+       $("#toufangdate").html(str[index].toufangdate);
+       $("#toufangaddr").html(str[index].toufangaddr);
+       $("#toufangtype").html(str[index].toufangtype);
+       $("#toufangaddr").html(str[index].toufangaddr);
+       $("#toufangtarget").html(str[index].toufangtarget);
+       $("#toufangeffect").html(str[index].toufangeffect);
+  }
+  
+  function UrlSearch() 
+{
+   var name,value; 
+   var str=location.href; //取得整个地址栏
+   var num=str.indexOf("?") 
+   str=str.substr(num+1); //取得所有参数   stringvar.substr(start [, length ]
+
+   var arr=str.split("&"); //各个参数放到数组里
+   for(var i=0;i < arr.length;i++){ 
+    num=arr[i].indexOf("="); 
+    if(num>0){ 
+     name=arr[i].substring(0,num);
+     value=arr[i].substr(num+1);
+     this[name]=value;
+     } 
+    } 
+} 
+var Request=new UrlSearch(); //实例化
+getValue(Request.caseid);
+  </script>
+</body>
+</html>
