@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*.ttlsa.com">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    
-    <title>聪娱官网</title>
+    <meta name="description" content="DSP，大数据营销，智能RTB广告，按效果付费，大数据挖掘，动态RTB广告，精准营销，实时竞价广告，DSP广告平台，DSP网络推广，精准数据营销，按效果付费广告，智能推荐，智能RTB，聪娱传媒">
+    <meta name="keywords" content="聪娱DSP是国内知名的互联网精准营销平台，我们专注于大数据挖掘和应用领域，为广大客户提供基于人群的精准网络广告投放">
+    <title>聪娱DSP-互联网线上精准营销领导者</title>
      <!-- Bootstrap -->
     <!--<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.4/css/bootstrap.min.css">-->
     
@@ -16,6 +18,48 @@
     
 </head>
 <body>
+        <!--dialog-->
+     <div id="divBg" style="display:none;" >
+       </div>
+     
+            <div class="dialog-container" id="divContainer" style="display:none;">
+                <div class="dialog-title">
+                    <img src="image/together.png" />
+                </div>
+                <div  id="divAdd">
+                    <form id="addfrm" >
+                        <table id="add_table">
+                            <tr>
+                                <td>公司名称</td>
+                                <td><input name="companyName" id="addcompanyName" type="text" placeholder="必填" /></td>
+                                <td class="textearp"><p>需求描述</p></td>
+                             </tr>
+                             <tr>
+                                 <td>推广网址</td>
+                                <td><input name="promotionWeb" id="addpromotionWeb" type="text" /></td> 
+                                <td rowspan="4"><textarea name="requirement"  style="width: 350px;height: 270px;margin-top: -30px;resize: none;" id="addrequirement"></textarea></td>
+                             </tr>  
+                            <tr>
+                                <td>联系人</td>
+                                <td><input name="linkman" id="addlinkman" type="text" placeholder="必填" /></td> 
+                             </tr> 
+                             <tr>
+                                <td>联系电话</td>
+                                <td><input name="phoneNum" id="addphoneNum" type="text"  placeholder="必填"/></td> 
+                             </tr>
+                              <tr>
+                                <td>E-Mail</td>
+                                <td><input name="email" id="addemail" type="text" /></td> 
+                             </tr>    
+                        </table>
+                        <div class="dialogbtn">
+                            <input class="btn" name="submitBtn" id="addsubmitBtn" type="button" value="提交" onclick="submitfrom()" />
+                            <input  class="btn" name="cancelBtn" id="addcancelBtn" type="button" value="取消" onclick="CancelAdd()" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+    
     <header>
         <nav class="navbar">
             <div class="navbar-contianer">
@@ -41,7 +85,7 @@
                 <div class="first-font">
                     <img src="image/first-dsp.png" />
                 </div>
-                <a href="#" class="first-btn" id="applybtn">
+                <a href="#" class="first-btn" onclick="ShowAdd()">
                      <img src="image/first-btn.png" />
                 </a>
                 <div class="first-pc">
@@ -141,23 +185,138 @@
             </div>    
         </footer>
        
-     
-     <!--dialog-->
-     <div id="dialog-partners" style="display:none;">
-        <form>
-            <div class="dialog-container">
-                <div class="dialog-title">
-                    <span>合作联系</span>
-                </div>
-            </div>
-        </form> 
-     </div>
-     
-     
     
-  <script  src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script  src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>   
+  <script  src="http://apps.bdimg.com/libs/layer/2.1/layer.js"></script>
+  <script type="text/javascript" src="/scripts/jquery.form.js"></script><!-- jquery from表单提交 -->
+  
   <script type="text/javascript">
   
+  function ShowAdd() {
+            if (document.getElementById("divContainer").style.display == "block") {
+            }
+
+            document.getElementById("divContainer").style.position = "absolute";
+            document.getElementById("divContainer").style.display = "block";
+            document.getElementById("divBg").style.display = "block";
+
+        }
+        
+     function CancelAdd() {
+            document.getElementById("divContainer").style.display = "none";
+            document.getElementById("divBg").style.display = "none";
+        }
+      
+      function submitfrom(){
+	      var bol=check();
+	      if(bol){
+      		var options={
+        		url:"/addCoopera.do",
+				type:"post",
+				dataType:"json",
+				success:function(data){
+					if(data.flag){
+						if(data.isSuccess){
+						    layer.alert("提交成功!");
+						    CancelAdd();
+						}else{
+							layer.alert(data.info);
+							CancelAdd();
+						}
+					}else{
+							layer.alert(data.info);
+							CancelAdd();
+						}
+				},
+				error:function(){
+					layer.closeAll("loading");
+					layer.alert("系统繁忙，请稍后重试…");
+					CancelAdd();
+				}
+				};
+            
+            $("#addfrm").ajaxSubmit(options);
+      	}
+      }
+      /*验证*/
+      function check(){
+      	//addcompanyName addlinkman addphoneNum
+      	var strname=$("#addcompanyName").val().trim();
+      	var strlinkmen=$("#addlinkman").val().trim();
+      	var strphone=$("#addphoneNum").val().trim();
+      	var strmail=$("#addemail").val().trim();
+      	var reg= /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+      	
+      	   	/*公司名称不为空*/
+	      if(strname.length==0 || strname=="" || strname==null){
+	      		layer.alert("请输入公司名称！");
+	      		return ;	
+	      }
+	      /*联系人不为空*/
+	      if(strlinkmen.length==0 || strlinkmen=="" || strlinkmen==null){
+	      		layer.alert("请输入联系人！");
+	      		return ;
+	      }
+	      
+	      /*
+			      <script type="text/javascript"> 
+		String.prototype.Trim = function() { 
+		var m = this.match(/^\s*(\S+(\s+\S+)*)\s*$/); 
+		return (m == null) ? "" : m[1]; 
+		} 
+		String.prototype.isMobile = function() { 
+		return (/^(?:13\d|15[89])-?\d{5}(\d{3}|\*{3})$/.test(this.Trim())); 
+		} 
+		String.prototype.isTel = function() 
+		{ 
+		//"兼容格式: 国家代码(2到3位)-区号(2到3位)-电话号码(7到8位)-分机号(3位)" 
+		//return (/^(([0\+]\d{2,3}-)?(0\d{2,3})-)?(\d{7,8})(-(\d{3,}))?$/.test(this.Trim())); 
+		return (/^(([0\+]\d{2,3}-)?(0\d{2,3})-)(\d{7,8})(-(\d{3,}))?$/.test(this.Trim())); 
+		} 
+		
+		function chkForm() { 
+		with(document.form1){ 
+		if (tel.value.isMobile()||tel.value.isTel()) { 
+		tel.value = tel.value.Trim(); 
+		alert("您的电话/手机号码是:" + tel.value); 
+		return true; 
+		} 
+		else { 
+		alert("请输入正确的手机号码或电话号码\n\n例如:13916752109或0712-3614072"); 
+		tel.focus(); 
+		return false; 
+		} 
+		} 
+		} */
+	      	/*联系方式*/
+      	var telphone=/^(([0\+]\d{2,3}-)?(0\d{2,3})-)?(\d{7,8})(-(\d{3,}))?$/;
+      	var phone=/^1\d{10}$/;
+      	if(strphone.length==0 || strphone=="" || strphone==null){
+      		layer.alert("请输入联系方式！");
+      		return ;
+      	}else{
+      		if(phone.test(strphone) || telphone.test(strphone)){
+      			
+      		}else{
+      			layer.alert("请输入有效的联系方式,例如:135********或者0517-5630****！");
+      			return ;
+      		}
+      	}
+      	
+      	/*邮箱*/
+      	if(strmail.length==0 || strmail=="" || strmail==null){
+      	
+      	}else{
+      		if(!reg.test(strmail)) {
+    			layer.alert("请输入有效的邮箱地址！");
+    			return ;
+    		}
+    		
+      	}
+	   
+     return true;
+    	
+      }
  </script>     
 </body>
 </html>
